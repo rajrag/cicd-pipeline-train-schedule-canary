@@ -58,6 +58,9 @@ pipeline {
                 branch 'master'
             }
             steps {
+            environment { 
+                CANARY_REPLICAS = 1
+            }
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
